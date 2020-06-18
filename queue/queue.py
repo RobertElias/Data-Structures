@@ -43,7 +43,21 @@ class Queue:
         self.length = 0
         self.head = node
         self.tail = node
-# returns the length Array
-
+        
+    # returns the length Array
     def __len__(self):
         return self.length
+    # adds an item to the back of the queue
+    def enqueue(self,value):
+        self.length += 1
+        new_node = Node(value)
+        # add a node if their is something in the queue
+        if self.head:
+           self.tail.next = new_node
+           self.tail = new_node
+        # add a node if que is empty
+        else:
+            self.head = new_node
+            self.tail = new_node
+            
+    
