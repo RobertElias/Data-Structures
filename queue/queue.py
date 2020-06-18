@@ -59,5 +59,22 @@ class Queue:
         else:
             self.head = new_node
             self.tail = new_node
+    
+    def denqueue(self):
+        # something in the que
+        if self.head:
+            # setting tail and head to none
+            if self.head == self.tail:
+                current_tail = self.tail
+                self.length -= 1
+                self.head = None
+                self.tail = None
+                return current_tail.value
+            # will make new item the head item
+            else:
+                self.length -= 1
+                current = self.head
+                self.head = self.head.next
+                return current.value
             
     
