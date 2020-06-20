@@ -60,7 +60,7 @@ class Queue:
             self.head = new_node
             self.tail = new_node
     
-    def denqueue(self):
+    def dequeue(self):
         # something in the que
         if self.head:
             # setting tail and head to none

@@ -47,14 +47,28 @@ class DoublyLinkedList:
     """Wraps the given value in a ListNode and inserts it 
     as the new head of the list. Don't forget to handle 
     the old head node's previous pointer accordingly."""
+    # will create a node at the front
     def add_to_head(self, value):
-        pass
+        self.length += 1
+        if self.head == None and self.tail == None:
+            newNode = ListNode(value)
+            self.head = newNode
+            self.tail = newNode
+        else:
+            # make a new node with next assigning value to head
+            newNOde = ListNode(value, None, self.head)
+            self.head = newNode
+            newNODe.next.prev = newNode
 
     """Removes the List's current head node, making the
     current head's next node the new head of the List.
     Returns the value of the removed Node."""
+    # removes the node
     def remove_from_head(self):
-        pass
+        value = self.head.value
+        self.delete(self.head)
+        return value
+        
 
     """Wraps the given value in a ListNode and inserts it 
     as the new tail of the list. Don't forget to handle 

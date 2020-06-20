@@ -17,6 +17,7 @@ return elements in Last In First Out order.
 #     def __init__(self):
 #         self.size = 0
 #         self.storage = []
+# #self.storage = LinkedList()
 
 #     def __len__(self):
 #         return (len(self.storage))
@@ -31,6 +32,7 @@ return elements in Last In First Out order.
 #         if len(self.storage) > 0:
 #             return self.storage.pop()
 #         return None
+
 
 
 # Using Linked List
