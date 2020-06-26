@@ -29,7 +29,7 @@ class BSTNode:
         
         else:
             if self.left:
-                self.left.inseert(value)
+                self.left.insert(value)
             else:
                 self.left = BSTNode(value)
                 self.left.level = self.level + 1
@@ -58,28 +58,59 @@ class BSTNode:
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        if self is not None:
+            
+            current_max = self
+            while current_max.right is not None:
+                current_max = current_max.right
+            return current_max.value
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        fn(self.value)
+        
+        if self.right:
+            self.right.for_each(fn)
+        if self.left:
+            self.left.for_each(fn)
 
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        
+        if node.left:
+            node.left.in_order_print(node.left)
+        #print(node.value)
+        if node.right:
+            node.right.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        # No node
+       if node == None:
+            return
+       queue = []
+        # Appends itself
+       queue.append(node)
+       while(len(queue) > 0):
+           print(queue[0].value)
+           current = queue.pop(0)
+           if current.left != None:
+               queue.append(current.left)
+           if current.right != None:
+               queue.append(current.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        print(node.value)
+        if node.right:
+            node.right.dft_print(node.right)
+        if node.left:
+            node.left.dft_print(node.left)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
